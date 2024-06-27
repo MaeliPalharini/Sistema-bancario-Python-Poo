@@ -1,23 +1,93 @@
-# 💰 Sistema de Gerenciamento Bancário 
-
-Bem-vindo ao sistema de gerenciamento bancário desenvolvido inteiramente em Python. Este projeto simula um ambiente 
-bancário simples, permitindo aos usuários realizar operações bancárias essenciais de maneira eficiente e segura 
-por uma interface de linha de comando. O sistema foi projetado para ser intuitivo e acessível, tornando-o uma ótima
-ferramenta educacional para aqueles interessados em aprender mais sobre programação em Python e sistemas
-bancários básicos.
+# 💰 Sistema Bancário em Python utilizando Programação Orientada a Objetos (POO)
+Este projeto é uma implementação simples de um sistema bancário em Python, que inclui funcionalidades como criação de
+contas, depósitos, saques, transferências e consulta de extratos. Utiliza conceitos de Programação Orientada a Objetos 
+(POO) como herança, polimorfismo e classes abstratas.
 
 ## ✳️ Funcionalidades
+- *Criar novos clientes*
+- *Criar novas contas para os clientes*
+- *Realizar depósitos em contas*
+- *Realizar saques de contas*
+- *Transferir dinheiro entre contas*
+- *Listar todas as contas*
+- *Exibir extrato de contas*
 
-- **Depositar**: Permite ao usuário depositar dinheiro em uma conta.
-- **Sacar**: Permite ao usuário sacar dinheiro de sua conta.
-- **Extrato**: Exibe o extrato das transações realizadas.
-- **Nova Conta**: Permite a criação de uma nova conta bancária.
-- **Listar Contas**: Lista todas as contas existentes no banco.
-- **Novo Usuário**: Permite criar um novo usuário no sistema.
-- **Transferir**: Facilita a transferência de valores entre contas.
-- **Sair**: Encerra a aplicação.
+## 🏗️Estrutura do Código
 
+1. **Cliente🧑‍💼**:
+   - Representa um cliente do banco.
+   - Atributos: `endereco`, `contas`.
+   - Métodos: `realizar_transacao`, `adicionar_conta`.
 
+2. **PessoaFisica**:
+   - Subclasse de `Cliente`.
+   - Atributos: `nome`, `data_nascimento`, `cpf`.
+
+### Classes Principais
+
+3. **Conta**:
+   - Classe base para contas bancárias.
+   - Atributos: `saldo`, `numero`, `agencia`, `cliente`, `historico`.
+   - Métodos: `sacar`, `depositar`.
+
+4. **ContaCorrente**:
+   - Subclasse de `Conta`.
+   - Atributos: `limite`, `limite_saques`.
+   - Métodos: `sacar`.
+
+5. **Historico**:
+   - Armazena o histórico de transações de uma conta.
+   - Métodos: `adicionar_transacao`.
+
+6. **Transacao (Abstract Class)**:
+   - Classe abstrata para transações bancárias.
+   - Propriedades: `valor`.
+   - Métodos: `registrar`.
+
+7. **Saque**:
+   - Subclasse de `Transacao`.
+   - Atributos: `valor`.
+   - Métodos: `registrar`.
+
+8. **Deposito**:
+   - Subclasse de `Transacao`.
+   - Atributos: `valor`.
+   - Métodos: `registrar`.
+
+### Funções Auxiliares
+
+- `menu()`: Exibe o menu de opções para o usuário.
+- `filtrar_cliente(cpf, clientes)`: Filtra e retorna um cliente baseado no CPF.
+- `recuperar_conta_cliente(cliente)`: Recupera a conta de um cliente.
+- `depositar(clientes)`: Realiza um depósito em uma conta.
+- `sacar(clientes)`: Realiza um saque de uma conta.
+- `exibir_extrato(clientes)`: Exibe o extrato de uma conta.
+- `criar_cliente(clientes)`: Cria um novo cliente.
+- `criar_conta(numero_conta, clientes, contas)`: Cria uma nova conta para um cliente.
+- `listar_contas(contas)`: Lista todas as contas existentes.
+
+## Exemplo de Uso
+
+1. Crie um novo cliente:
+   ```python
+   criar_cliente(clientes)
+   
+2. Crie uma nova conta para o cliente:
+    ```python
+    criar_conta(numero_conta, clientes, contas)
+
+3. Realize um depósito:
+    ```python
+    depositar(clientes)
+
+4. Realize um saque:
+    ```python
+    sacar(clientes)
+
+5. Exiba o extrato da conta:
+    ```python
+    exibir_extrato(clientes)
+   
 ## 🛠️ Tecnologias Utilizadas
 
 - Python 3.12
