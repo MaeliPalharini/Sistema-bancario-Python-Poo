@@ -11,6 +11,12 @@ contas, depósitos, saques, transferências e consulta de extratos. Utiliza conc
 - *Transferir dinheiro entre contas*
 - *Listar todas as contas*
 - *Exibir extrato de contas*
+- *Registrar atividades com decorador de log*: Automatiza o registro de todas as operações bancárias, 
+facilitando o monitoramento e a auditoria.
+- *Gerar relatórios com geradores*: Permite a criação de relatórios dinâmicos que são construídos sob 
+demanda, melhorando a eficiência da memória.
+- *Iterar sobre contas com iterador personalizado*: Facilita a manipulação e acesso a contas através
+de um iterador customizado que implementa comportamentos específicos.
 
 ## 🏗️Estrutura do Código
 
@@ -54,6 +60,35 @@ contas, depósitos, saques, transferências e consulta de extratos. Utiliza conc
    - Atributos: `valor`.
    - Métodos: `registrar`.
 
+## 🏗️ Implementações Técnicas
+
+### Decorador de Log
+- Implementado para registrar automaticamente informações relevantes cada vez que uma transação é realizada.
+
+### Gerador de Relatórios
+- Utiliza geradores Python para criar relatórios de transações, otimizando o uso de recursos e permitindo a manipulação de grandes volumes de dados de forma eficiente.
+
+### Iterador Personalizado
+- Facilita a navegação através das contas do cliente, permitindo operações como filtragem e agregação durante a iteração.
+
+## Exemplo de Uso de Novas Funcionalidades
+
+1. **Usando o Decorador de Log**:
+   ```python
+   @log_transacao
+   def sacar(self, valor):
+       # código para saque
+   
+2. **Gerando um Relatório de Transações**:
+   ```python
+   for transacao in gerar_relatorio(transacoes):
+       print(transacao)
+   
+3. **Iterando com o Iterador Personalizado**:
+   ```python
+   for conta in ContaIterator(minhas_contas):
+      print(conta)
+   
 ### Funções Auxiliares
 
 - `menu()`: Exibe o menu de opções para o usuário.
